@@ -1,0 +1,14 @@
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\bin\Debug\netcoreapp2.1\CoreVanillaJs.deps.json
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\bin\Debug\netcoreapp2.1\CoreVanillaJs.runtimeconfig.json
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\bin\Debug\netcoreapp2.1\CoreVanillaJs.runtimeconfig.dev.json
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\bin\Debug\netcoreapp2.1\CoreVanillaJs.dll
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\bin\Debug\netcoreapp2.1\CoreVanillaJs.pdb
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.csprojAssemblyReference.cache
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.csproj.CoreCompileInputs.cache
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.RazorAssemblyInfo.cache
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.RazorAssemblyInfo.cs
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.AssemblyInfoInputs.cache
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.AssemblyInfo.cs
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.RazorTargetAssemblyInfo.cache
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.dll
+C:\Users\Bioxor\source\repos\CoreVanillaJs\CoreVanillaJs\obj\Debug\netcoreapp2.1\CoreVanillaJs.pdb
