@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Prueba .NET</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Automovil</h1>
+    <hr>
+    <form id="frm">
+        <input type="hidden" value="" name="Id" Id="Id">
+        <label>Marca: </label>
+        <input type="text" name="Marca" id="Marca">
+        <br>
+        <label>Valor: </label>
+        <input type="text" name="Valor" id="Valor">
+        <br>
+        <label>Imagen: </label>
+        <input type="text" name="Imagen" id="Imagen">
+        <br>
+        <input type="button" value="Guardar" onclick="Guardar();">
+    </form>
+    <hr>
+    <div id="divLista"></div>
+</body>
+</html>
+
+<script>
+var url="https://localhost:44320/api/automovil";
+
+Get();
+
+function Guardar(){
+   if(document.getElementById("Id").value!=""){
+        Edit();
+   } else{
+       Post();
+   }
+}
+
+function Post(){
+   fetch(url, {
+       method: "POST",
+       body: JSON.stringify({
+           Marca: document.getElementById("Marca").value,
+           Valor: document.getElementById("Valor").value
+        }),
+        headers: {
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+   }).then(function(response){
+       if(response.ok){
+           return response.text();
+       }else{
+           alert("Error al ejecutar solicitud");
+       }
+   }).then(function(Data){
+       console.log(Data);
+       Get();
+       document.getElementById("Id").value="";
+       document.getElementById("Marca").value="";
+       document.getElementById("Valor").value="";
+   })
+}
+
+function Delete(id){
+    fetch(url, {
+       method: "DELETE",
+       body: JSON.stringify({
+           Id: id
+        }),
+        headers: {
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+   }).then(function(response){
+       if(response.ok){
+           return response.text();
+       }else{
+           alert("Error al ejecutar solicitud");
+       }
+   }).then(function(Data){
+       console.log(Data);
+       Get();
+   })
+}
+
+function OpenEdit(Id,Marca,Valor){
+    document.getElementById("Id").value=Id;
+    document.getElementById("Marca").value=Marca;
+    document.getElementById("Valor").value=Valor;
+}
+
+function Edit(){
+    fetch(url, {
+       method: "PUT",
+       body: JSON.stringify({
+           Id: document.getElementById("Id").value,
+           Marca: document.getElementById("Marca").value,
+           Valor: document.getElementById("Valor").value,
+        }),
+        headers: {
+            'Accept':"application/json",
+            "Content-Type":"application/json"
+        }
+   }).then(function(response){
+       if(response.ok){
+           return response.text();
+       }else{
+           alert("Error al ejecutar solicitud");
+       }
+   }).then(function(Data){
+       console.log(Data);
+       Get();
+       document.getElementById("Id").value="";
+       document.getElementById("Marca").value="";
+       document.getElementById("Valor").value="";
+   })
+}
+
+
+function Get(){
+    fetch(url).then(function(response){
+        return response.json();
+    }).then(function(Data){
+        document.getElementById("divLista").innerHTML="";
+        for(i=0; i<Data.length; i++){
+            let divElement = document.createElement("div");
+            let divSpan = document.createElement("span");
+            let divButtonDelete = document.createElement("button");
+            let divButtonEdit = document.createElement("button");
+            divSpan.innerHTML = Data[i].Marca+" "+Data[i].Valor;
+            divButtonDelete.innerHTML="Eliminar";
+            divButtonDelete.MiId=Data[i].id;
+            divButtonDelete.addEventListener("click",function(mibutton){
+                Delete(mibutton.target.MiId);
+            })
+            divButtonEdit.innerHTML="Editar";
+            divButtonEdit.MiId=Data[i].id;
+            divButtonEdit.MiMarca=Data[i].Marca;
+            divButtonEdit.MiValor=Data[i].Valor;
+            divButtonEdit.addEventListener("click",function(mibutton){
+                OpenEdit(
+                    mibutton.target.MiId,
+                    mibutton.target.MiMarca,
+                    mibutton.target.MiValor
+                );
+            })
+            divElement.appendChild(divSpan);
+            divElement.appendChild(divButtonDelete);
+            divElement.appendChild(divButtonEdit);
+            document.getElementById("divLista").appendChild(divElement);
+
+        }
+       
+        
+    })
+}
+</script>
